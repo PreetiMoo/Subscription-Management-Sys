@@ -31,21 +31,8 @@ app.use("/prodList", require("./routes/accounts/prodList"));
 app.use("/subsPlanList", require("./routes/accounts/subsPlanList"));
 app.use("/merchCustom", require("./routes/accounts/merchCustomization"));
 app.use("/subscriptions", require("./routes/accounts/subs"));
+app.use("/payment", require("./routes/PG/payments"));
 
-// const posts = [
-//   {
-//     uname : 'Preeti',
-//     title: 'Post1'
-//   },
-//   {
-//     uname : 'XYZ',
-//     title: 'Post2'
-//   }
-// ]
-
-// app.get('/posts', (req,res) =>{
-//   res.json(posts)
-// })
 
 app.post("/login", (req, res) => {
   const username = req.body.username;
@@ -55,8 +42,6 @@ app.post("/login", (req, res) => {
   res.json({ accessToken: accessToken });
 });
 
-// app.get('/login',function(request,response){
-//   response.render("login.ejs",{username:request.body.username})
-// })
+
 
 app.listen(port, () => console.log(`Server running on port ${port}`));

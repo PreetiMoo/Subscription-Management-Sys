@@ -28,7 +28,14 @@ const subscription = sequelize.define(
     },
     merchant_id: {
       type: DataTypes.INTEGER
-    }
+    },
+    payment_status: {
+      type: DataTypes.ENUM('pending', 'success', 'failure'), // Define ENUM data type
+      defaultValue: 'pending' // Optional: Specify default value if needed
+    },
+    transaction_ID: {
+      type: DataTypes.UUID
+    },
   },
   {
     timestamps: false

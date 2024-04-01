@@ -58,4 +58,16 @@ router.get("/get",authenticateToken, async (req, res) => {
        }
 })
 
+router.get("/getCustomization", async (req, res) => {
+    try{
+        const customization = await merchant_customization.findAll({where: {merchant_id:req.query.merchant_id}});
+        console.log(customization);
+        res.send(customization);
+       } catch (err) {
+        console.log(err);
+        res.send(err)
+       }
+})
+
+
 module.exports = router;

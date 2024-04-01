@@ -49,7 +49,7 @@ router.get("/get", authenticateToken, async (req, res) => {
 });
 
 router.get("/merchant/get", authenticateToken, async (req, res) => {
-  const merchantSubscriptionPlans = await subscription.findAll({ where: { merchant_id: req.user.id } }) ;
+  const merchantSubscriptionPlans = await subscription.findAll({ where: { merchant_id: req.user.id , payment_status:'success' } }) ;
   res.status(200).json(merchantSubscriptionPlans)
   
 });
